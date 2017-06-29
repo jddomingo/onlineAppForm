@@ -19,6 +19,9 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 
+#Use Prawn to generate PDFs
+gem 'prawn'
+
 
 gem 'coffee-script-source', '1.8.0'
 #Use PDFKit to convert HTML to PDF

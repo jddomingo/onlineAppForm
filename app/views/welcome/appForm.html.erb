@@ -3,16 +3,15 @@
 <HTML>
 <style>    
 	@import "compass/css3"
-	html, body {
+	html, body{
         margin: 0;
         padding: 0;
         background-color: #FAFAFA;
-        font: 12pt "Arial";
+        font: 11pt "Arial";
     }
 
     hr {
-    	border-style: so
-    	lid;
+    	border-style: solid;
     	border-width: 2;
     }
 
@@ -22,27 +21,16 @@
     	text-align: center;
     }
 
-    input.table{
-    	border: 1 auto;
-    	outline: 1 auto;
-    }
 
     textarea {
     	outline: 0;
+    	width: 100%;
     	background: transparent;
     	padding: 1px;
     	margin: 1px;
     	resize: none;
+  		word-wrap: break-word;
     }
-    div.table {
-    	display:table;
-	}
-	form.tr, div.tr	{
-	    display:table-row;
-	}
-	span.td	{
-	    display:table-cell;
-	}
 
     .alignleft {
     	float:left;
@@ -52,10 +40,26 @@
     	float:right;
     }
 
+    table {
+	    width: 100%;
+	    border-collapse:collapse;
+	    margin: auto;
+	    border: 2px solid black;
+	    table-layout: fixed;
+	}
+	td {
+	    text-align: center;
+	}
+	td input {
+	    box-sizing: border-box;
+	    width: 100%;
+	    padding: 0;
+	}
+
     p, ol {
     	margin: 0;
     	padding: 0;
-    	size: 8.27in 11.69in;
+    	size: 8.5in 11in;
     	word-wrap: break-word;
 
     }
@@ -78,6 +82,12 @@
     .page {
         width: 8.5in;
         min-height: 11in;
+        padding: 2cm;
+        margin: 1cm auto;
+        border: 1px #D3D3D3 solid;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
     }
     .subpage {
         padding: 1cm;
@@ -121,8 +131,7 @@
 <BODY LANG="en-PH" LINK="#0563c1" DIR="LTR">
 <div class="page">
 <P  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>University
-of the Philippines</B></FONT></FONT><SPAN DIR="LTR" STYLE="float: right; width: 2.01in; height: 1.78in; border: 1px solid #000000; padding: 0.05in 0.1in; background: #ffffff "><FONT FACE="Arial, serif">ID
-	PHOTO</FONT>
+of the Philippines</B></FONT></FONT><SPAN DIR="LTR" STYLE="float: right; width: 2.01in; height: 1.78in; border: 1px solid #000000; padding: 0.05in 0.1in; background: #ffffff "><FONT FACE="Arial, serif">ID PHOTO</FONT>
 </SPAN>
 </P>
 <P ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">College
@@ -133,7 +142,7 @@ Hall, Diliman, Quezon City 1101
 <br>
 Tel/Fax:
 +632 981 8500 ext 3152</FONT></FONT></P>
-<P  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt"></FONT></FONT></P>
+<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt"></FONT></FONT></P>
 <P  ><BR>
 </P>
 <P  ><BR>
@@ -158,30 +167,33 @@ UP College of Engineering for the deadline of the submission.</FONT></FONT></P>
 <hr>
 <fieldset>
 <legend><b><p>Applicant</p></b></legend>
-<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Name
- <input type="text" style="width: 458px"></input>&nbsp&nbspStudent Number
-<input type="text" style="width: 150px"></input></FONT></FONT></P>
-<P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Date
-and Place of Birth <input type="text" style="width: 380px"></input>&nbsp&nbspCitizenship <input type="text" style="width: 150px"></input></FONT></FONT></P>
-<P align=left  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Current
-Address 
-	  <textarea style="width: 770px; height: 50px" maxlength="285" ></textarea></FONT></FONT></P>
-<P align=left  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Home
-Address
-<textarea style="width: 770px; height: 50px" maxlength="285"></textarea></FONT></FONT></P>
-<P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Landline/Mobile/E-mail <input type="text" style="width: 200px"></input></FONT></FONT></P>
+<form action="sample" method="post">
+<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+Name <input type="text" name="person[name]"  style="width: 55%"></input>
+&nbsp&nbspStudent Number <input type="text" name="person[sn]" style="width: 18%"></input></FONT></FONT></P>
+<P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+Date and Place of Birth <input type="text" name="person[birth]" style="width: 40%"></input>
+&nbsp&nbspCitizenship <input type="text" name="person[citizenship]" style="width: 21%"></input></FONT></FONT></P>
+<P align=left  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+Current Address <textarea style="height: 50px" name="person[caddress]" maxlength="300"></textarea></FONT></FONT></P>
+<P align=left  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+Home Address <textarea style="height: 50px" name="person[haddress]"></textarea maxlength="300"></FONT></FONT></P>
+<P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+Landline/Mobile/E-mail <input name="person[contact]"type="text" style="width: 65%"></input></FONT></FONT></P>
 </fieldset>
 <BR>
 <fieldset>
-<LEGEND><b><P align=justify  >Parent/Guardian</P></LEGEND></b>
-<P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Name <input type="text" style="width: 380px"></input>&nbsp&nbspContact No./E-mail <input type="text" style="width: 210px"></input></p></FONT>
-Address <textarea style="width: 770px; height: 50px" maxlength="285"></textarea></FONT></FONT></P></fieldset><BR>
+<LEGEND><b><P align=justify>Parent/Guardian</P></LEGEND></b>
+<P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+Name <input type="text" name="parents[name]" style="width: 50%"></input>
+&nbsp&nbspContact No./E-mail <input type="text" name="parents[contact]" style="width: 20%"></input></p></FONT>
+Address <textarea style="height: 50px" name="parents[address]" maxlength="300"></textarea></FONT></FONT></P></fieldset><BR>
 <OL>
 	<LI>Name
 	of Scholarship(s)/Study Grant(s) Applied for and Desired
 	Semester/Year of Award 
 </OL>
-<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, serif"><input type="text" style="width: 770px"></input></FONT></P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, serif"><input type="text" name="person[desire]" style="width: 100%"></input></FONT></P>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, serif"><FONT SIZE=2><B>(</B></FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=2><U><B>May
 be left blank.</B></U></FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=2><I><B>
 The committee will endorse/nominate you for the first available
@@ -190,13 +202,14 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 </P>
 <OL START=2>
 	<LI>Year
-	Entered the University <input type="text" style="width: 100px"></input>&nbsp&nbspCurrent Year Classification <input type="text" style="width: 80px"></input>
+	Entered the University <input type="text" name="person[year]" style="width: 16%"></input>
+	&nbsp&nbspCurrent Year Classification <input type="text" name="person[current]" style="width: 12%"></input>
 </OL>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
 </P>
 <OL START=3>
 	<LI>College
-	Degree Sought <input type="text" style="width: 300px"></input>
+	Degree Sought <input type="text" name="person[degree]" style="width: 50%"></input>
 </OL>
 <P  ><BR>
 </P>
@@ -206,36 +219,33 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 	semesters and last mid year if enrolled?  (If yes, list the
 	subjects, grades and semesters incurred.)
 </OL>
-<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial"><FONT SIZE=2 STYLE="font-size: 11pt"><textarea style="width: 750px; height: 100px"></textarea></FONT></FONT></P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial"><FONT SIZE=2 STYLE="font-size: 11pt"><textarea style="height: 100px" name="person[grades]" maxlength="300"></textarea></FONT></FONT></P>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
 </P>
 <OL START=5>
 	<LI>Did
-	you avail of the STS?&nbsp<input type="text" style="width: 60px"></input>&nbsp&nbsp (If yes, what tuition fee discount
-	level are you in?)  <input type="text" style="width: 40px"></input>
+	you avail of the STS?&nbsp<input type="text" name="person[sts]" style="width: 9%"></input>&nbsp&nbsp (If yes, what tuition fee discount
+	level are you in?)  <input type="text" name="person[stslevel]" style="width: 7%"></input>
 </OL>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
 </P>
 <OL START=6>
 	<LI>Estimated
-	Gross Family Income of Parents/Guardian (Annual) <input type="text" style="width: 300px"></input>
-</OL>
-</div>
-<br><br><br><br>
-<div class="page">
+	Gross Family Income of Parents/Guardian (Annual) <input type="text" name="person[income]" style="width: 36%"></input>
+</OL><br>
 <OL START=7>
 	<LI>Are
-	you receiving any scholarship/grant/assistance?  <input type="text" style="width: 60px; text-align: center"></input> If yes,
+	you receiving any scholarship/grant/assistance?  <input type="text" name="person[scholarship]" style="width: 10%;"></input> If yes,
 	kindly provide the following details:
 	<OL TYPE=a STYLE="margin-left: 0.25in">
 		<LI>Name
-		of the funding agency <input type="text" style="width: 440px; text-align: center"></input>
+		of the funding agency <input type="text" name="person[funding]" style="width: 67%; text-align: center"></input>
 		<LI>Benefits
-		(in Peso) <input type="text" style="width: 505px; text-align: center"></input>
-		<LI>Duration <input type="text" style="width: 562px; text-align: center"></input>
+		(in Peso) <input type="text" name="person[benefits]" style="width: 77.3%; text-align: center"></input>
+		<LI>Duration <input type="text" name="person[duration]" style="width: 86.5%; text-align: center"></input>
 		<LI>Does
 		the funding agency allow you to have other
-		scholarships/grants/assistance? <input type="text" style="width: 60px"></input>
+		scholarships/grants/assistance? <input type="text" name="person[allow]" style="width: 10%"></input>
 	</OL>
 </OL>
 <P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
@@ -245,27 +255,27 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 	you been guilty of participating in any violent incident, whether on
 	campus or off-campus?  (If yes, please explain under what
 	circumstances.)
-</OL><textarea style="width: 800px; height: 100px" maxlength="285"></textarea>
+</OL><textarea style="height: 100px" name="person[incident]" maxlength="300"></textarea>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
 </P>
 <OL START=9>
 	<LI>Have
 	you been subjected to any disciplinary action involving a penalty of
 	at least five (5) days suspension, or found guilty of a more serious
-	offense?  (If yes, please explain.) <textarea style="width: 800px; height: 100px" maxlength="285"></textarea>
+	offense?  (If yes, please explain.) <textarea style="height: 100px" name="person[disciplinary]" maxlength="300"></textarea>
 </OL>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
 </P>
 <OL START=10>
 	<LI>Family
 	Background
-</OL><TABLE WIDTH=100% CELLPADDING=7 CELLSPACING=0>
-	<COL WIDTH=186>
-	<COL WIDTH=81>
-	<COL WIDTH=28>
-	<COL WIDTH=44>
-	<COL WIDTH=95>
-	<COL WIDTH=79>
+</OL><TABLE WIDTH=100% CELLPADDING=0 CELLSPACING=0>
+	<COL WIDTH=31%>
+	<COL WIDTH=15%>
+	<COL WIDTH=8%>
+	<COL WIDTH=10%>
+	<COL WIDTH=22%>
+	<COL WIDTH=14%>
 	<TR VALIGN=TOP>
 		<TD WIDTH=33% style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
 			<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Name</FONT></FONT></P>
@@ -289,185 +299,143 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 		</TD>
 	</TR>
 	<TR VALIGN=TOP>
-		<TD contenteditable="true" WIDTH=186 style="border: 1px solid #00000a; text-align: center;  text-align: center; padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD width=33% style="text-align: center;">
+			<input name="family[name1]">
 		</TD>
-		<TD contenteditable="true" WIDTH=81 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[relationship1]">
 		</TD>
-		<TD contenteditable="true" WIDTH=28 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[age1]">
 		</TD>
-		<TD contenteditable="true" WIDTH=44 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[marital1]">
 		</TD>
-		<TD contenteditable="true" WIDTH=95 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[living1]">
 		</TD>
-		<TD contenteditable="true" WIDTH=79 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[occupation1]">
 		</TD>
 	</TR>
 	<TR VALIGN=TOP>
-		<TD contenteditable="true" WIDTH=186 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD width=33% style="text-align: center;border: 1px solid #00000a; ">
+			<input name="family[name2]">
 		</TD>
-		<TD contenteditable="true" WIDTH=81 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[relationship2]">
 		</TD>
-		<TD contenteditable="true" WIDTH=28 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[age2]">
 		</TD>
-		<TD contenteditable="true" WIDTH=44 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[marital2]">
 		</TD>
-		<TD contenteditable="true" WIDTH=95 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[living2]">
 		</TD>
-		<TD contenteditable="true" WIDTH=79 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[occupation2]">
 		</TD>
 	</TR>
 	<TR VALIGN=TOP>
-		<TD contenteditable="true" WIDTH=186 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD width=33% style="text-align: center;border: 1px solid #00000a; ">
+			<input name="family[name3]">
 		</TD>
-		<TD contenteditable="true" WIDTH=81 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[relationship3]">
 		</TD>
-		<TD contenteditable="true" WIDTH=28 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[age3]">
 		</TD>
-		<TD contenteditable="true" WIDTH=44 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[marital3]">
 		</TD>
-		<TD contenteditable="true" WIDTH=95 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[living3]">
 		</TD>
-		<TD contenteditable="true" WIDTH=79 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[occupation3]">
 		</TD>
 	</TR>
 	<TR VALIGN=TOP>
-		<TD contenteditable="true" WIDTH=186 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD width=33% style="text-align: center;border: 1px solid #00000a; ">
+			<input name="family[name4]">
 		</TD>
-		<TD contenteditable="true" WIDTH=81 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[relationship4]">
 		</TD>
-		<TD contenteditable="true" WIDTH=28 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[age4]">
 		</TD>
-		<TD contenteditable="true" WIDTH=44 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[marital4]">
 		</TD>
-		<TD contenteditable="true" WIDTH=95 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[living4]">
 		</TD>
-		<TD contenteditable="true" WIDTH=79 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[occupation4]">
 		</TD>
 	</TR>
 	<TR VALIGN=TOP>
-		<TD contenteditable="true" WIDTH=186 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD width=33% style="text-align: center;border: 1px solid #00000a; ">
+			<input name="family[name5]">
 		</TD>
-		<TD contenteditable="true" WIDTH=81 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[relationship5]">
 		</TD>
-		<TD contenteditable="true" WIDTH=28 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[age5]">
 		</TD>
-		<TD contenteditable="true" WIDTH=44 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[marital5]">
 		</TD>
-		<TD contenteditable="true" WIDTH=95 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[living5]">
 		</TD>
-		<TD contenteditable="true" WIDTH=79 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[occupation5]">
 		</TD>
 	</TR>
 	<TR VALIGN=TOP>
-		<TD contenteditable="true" WIDTH=186 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD width=33% style="text-align: center;border: 1px solid #00000a; ">
+			<input name="family[name6]">
 		</TD>
-		<TD contenteditable="true" WIDTH=81 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[relationship6]">
 		</TD>
-		<TD contenteditable="true" WIDTH=28 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[age6]">
 		</TD>
-		<TD contenteditable="true" WIDTH=44 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[marital6]">
 		</TD>
-		<TD contenteditable="true" WIDTH=95 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[living6]">
 		</TD>
-		<TD contenteditable="true" WIDTH=79 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[occupation6]">
 		</TD>
 	</TR>
 	<TR VALIGN=TOP>
-		<TD contenteditable="true" WIDTH=186 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD width=33% style="text-align: center;border: 1px solid #00000a; ">
+			<input name="family[name7]">
 		</TD>
-		<TD contenteditable="true" WIDTH=81 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[relationship7]">
 		</TD>
-		<TD contenteditable="true" WIDTH=28 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[age7]">
 		</TD>
-		<TD contenteditable="true" WIDTH=44 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[marital7]">
 		</TD>
-		<TD contenteditable="true" WIDTH=95 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[living7]">
 		</TD>
-		<TD contenteditable="true" WIDTH=79 style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
-			<P><BR>
-			</P>
+		<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<input name="family[occupation7]">
 		</TD>
 	</TR>
 </TABLE>
@@ -476,7 +444,7 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 <OL START=11>
 	<LI>Describe
 	briefly why you should be awarded the scholarship/grant applied for?
-</OL><textarea style="width: 800px; height: 200px" maxlength="285"></textarea>
+</OL><textarea style="height: 200px" name="person[reason]" maxlength="300"></textarea>
 <P  ><BR>
 </P>
 <P  ><BR>
@@ -491,7 +459,7 @@ knowledge and belief, is true.</FONT></FONT></P>
 </P>
 <div id="textbox">
 <P class="alignleft"><input type="text" style="width: 380px; border: 0; outline: 0; padding: 1px; border-bottom: 1px solid black"></P>
-<P class="alignright"><input type="text" style="width: 150px; border: 0; outline: 0; padding: 1px; border-bottom: 1px solid black"></P>
+<P class="alignright"><input type="text" name="date" style="width: 150px; border: 0; outline: 0; padding: 1px; border-bottom: 1px solid black"></P>
 </div>
 <br><br>
 <div id="textbox">
@@ -508,8 +476,8 @@ SEND SOFT COPY OF ALL DOCUMENTS TO </B></FONT></FONT><A HREF="mailto:mparciga@ya
 Then, SUBMIT </FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=1 STYLE="font-size: 8pt"><B>HARD
 COPIES TO MH209.</B></FONT></FONT></P>
 <p class="alignright">
-<input type="button" value="Submit"></button></p>
-</div>
+<input type=submit></p>
+</form>
 </div>
 </BODY>
 </HTML>
