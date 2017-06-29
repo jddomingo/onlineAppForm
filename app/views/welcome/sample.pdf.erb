@@ -3,7 +3,7 @@
 
 <%= 
 	pdf = WickedPdf.new.pdf_from_html_file('/appForm.html.erb')
-	save_path = Rails.root.join('pdfs', 'google.pdf')
+	save_path = Rails.root.join('pdfs', 'onlineAppForm.pdf')
 	File.open(save_path, 'wb') do |file|
 		file << pdf
 	end
