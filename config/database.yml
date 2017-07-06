@@ -13,13 +13,13 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: root
-  password: 
+  username: online_app_form_admin
+  password: pwd
   host: localhost
 
 development:
   <<: *default
-  database: #onlineAppForm_development
+  database: online_app_form
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

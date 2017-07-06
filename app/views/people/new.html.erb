@@ -1,0 +1,520 @@
+	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+	<HTML>
+	<HEAD>
+	<style type="text/css">    
+		@import "compass/css3"
+		html, body{
+	        margin: 0;
+	        padding: 0;
+	        background-color: #FAFAFA;
+	        font: 11pt "Arial";
+	    }
+
+	    hr {
+	    	border-style: solid;
+	    	border-width: 2;
+	    }
+
+	    input {
+	    	padding: 1px;
+	    	word-wrap: break-word;
+	    	text-align: center;
+	    }
+
+	    textarea {
+	    	outline: 0;
+	    	width: 100%;
+	    	max-height: 200px;
+	    	background: transparent;
+	    	padding: 1px;
+	    	margin: 1px;
+	    	resize: none;
+	  		word-wrap: break-word;
+	  		overflow: hidden;
+	    }
+
+	    .alignleft {
+	    	float:left;
+	    }
+
+	    .alignright {
+	    	float:right;
+	    }
+
+	    table {
+		    width: 100%;
+		    border-collapse:collapse;
+		    margin: auto;
+		    border: 2px solid black;
+		    table-layout: fixed;
+		}
+		td {
+		    text-align: center;
+		}
+		td input {
+		    box-sizing: border-box;
+		    width: 100%;
+		    padding: 0;
+		}
+
+	    p, ol {
+	    	margin: 0;
+	    	padding: 0;
+	    	size: 8.5in 11in;
+	    	word-wrap: break-word;
+
+	    }
+
+	    .table-editable {
+	    	position: relative;
+
+	    	.glyphicon {
+	    		font-size: 25px;
+	    	}
+	    }
+
+	    li {
+	    	list-style-position: inside;
+	    }
+	    * {
+	        box-sizing: border-box;
+	        -moz-box-sizing: border-box;
+	    }
+	    .page {
+	        width: 8.5in;
+	        min-height: 11in;
+	        padding: 2cm;
+	        margin: 1cm auto;
+	        border: 1px #D3D3D3 solid;
+	        border-radius: 5px;
+	        background: white;
+	        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+	    }
+
+		.field_with_errors {
+		  border-color: red;
+		  display: inline-block;
+		}
+	    .subpage {
+	        padding: 1cm;
+	        border: 5px red solid;
+	        height: 256mm;
+	        outline: 2cm #FFEAEA solid;
+	    }
+	    @page {
+	        size: letter;
+	        position: absolute;
+	        margin: 0;
+	    }
+	    @media print {
+	        .page {
+	            margin: 0;
+	            border: initial;
+	            border-radius: initial;
+	            width: initial;
+	            min-height: initial;
+	            box-shadow: initial;
+	            background: initial;
+	            page-break-after: always;
+	        }
+	    }
+	</style>
+		<TITLE>Scholarship Form</TITLE>
+	</HEAD>
+	<body LANG="en-PH" LINK="#0563c1" DIR="LTR" data-no-turbolink="true">
+	<div class="page">
+	<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>University
+	of the Philippines</B></FONT></FONT><SPAN DIR="LTR" STYLE="float: right; width: 2.01in; height: 1.78in; border: 1px solid #000000; padding: 0.05in 0.1in; background: #ffffff "><FONT FACE="Arial, serif">ID PHOTO</FONT>
+	</SPAN>
+	</P>
+	<P ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">College
+	of Engineering 
+	<br>
+	Melchor
+	Hall, Diliman, Quezon City 1101
+	<br>
+	Tel/Fax:
+	+632 981 8500 ext 3152</FONT></FONT></P>
+	<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt"></FONT></FONT></P>
+	<P  ><BR>
+	</P>
+	<P  ><BR>
+	</P>
+	<hr>
+	<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Undergraduate
+	Scholarships and Study Grants</FONT></FONT></P>
+	<P STYLE="text-indent: 0.5in; margin-bottom: 0in"><FONT FACE="Arial, serif"><FONT SIZE=4 STYLE="font-size: 16pt"><B>APPLICATION
+	FORM</B></FONT></FONT></P>
+	<P><BR>
+	</P>
+	<P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2>INSTRUCTIONS:
+	Accomplish this form and submit to the Office of the Associate Dean
+	for Student Affairs, UP College of Engineering. Attach with this form
+	the following: </FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=2><U><B>1)
+	a letter of endorsement from your department chairperson/institute
+	director;    2) an SDC clearance; 3) a copy of recent Form5 with ID;
+	4) a copy of parents ITR;   5) TCG; and   6) Letter of intent address
+	to Donor/ADSA</B></U></FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=2>.
+	 Please see announcements from the Committee on Scholarships of the
+	UP College of Engineering for the deadline of the submission.</FONT></FONT></P>
+	<hr>
+	<%= form_for :person, :url => people_path do |f|%>
+	<% if @person.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@person.errors.count, "error") %> found. Please fill in the necessary details:</h2>
+	 
+	    <ul>
+	    <% @person.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+	<fieldset>
+	<legend><b>Applicant</b></legend>
+	<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+	Name
+	<%= f.text_field :name, :size => "47", placeholder: "Given Name M.I. Last Name" %>
+	<%= f.error_message_on :name %>
+	&nbsp&nbspStudent Number
+	<%= f.text_field :sn, :size => "11", placeholder: "20xx-xxxxx" %></FONT></FONT></P>
+	<P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+	Date and Place of Birth 
+	<%= f.text_field :birth, :size => "30" %>
+	&nbsp&nbspCitizenship 
+	<%= f.text_field :citizenship, :size => "17" %>
+	</FONT></FONT></P>
+	<P align=left  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+	Current Address
+	<%= f.text_area :caddress, :rows => "3" %>	
+	</FONT></FONT></P>
+	<P align=left  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+	Home Address 
+	<%= f.text_area :haddress, :rows => "3" %>
+	</FONT></FONT></P>
+	<P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+	Landline/Mobile/E-mail 
+	<%= f.text_field :contact, :size => "55" %>
+	</FONT></FONT></P>
+	</fieldset>
+	<BR>
+	<fieldset>
+	<LEGEND><b>Parent/Guardian</b></LEGEND>
+	<P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
+	Name 
+	<%= f.text_field :pname, :size => "41", placeholder: "Given Name M.I. Last Name" %>
+	&nbsp&nbspContact No./E-mail 
+	<%= f.text_field :pcontact, :size => "15" %>
+	Address 
+	<%= f.text_area :paddress, :rows => "3" %>
+	</FONT></FONT></P></fieldset><BR>
+	<OL>
+		<LI>Name
+		of Scholarship(s)/Study Grant(s) Applied for and Desired
+		Semester/Year of Award 
+	</OL>
+	<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, serif">
+
+	<%= f.text_field :desire, :size => "86" %>
+		
+	</FONT></P>
+	<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, serif"><FONT SIZE=2><B>(</B></FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=2><U><B>May
+	be left blank.</B></U></FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=2><I><B>
+	The committee will endorse/nominate you for the first available
+	scholarship slot where you qualify.)</B></I></FONT></FONT></P>
+	<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
+	</P>
+	<OL START=2>
+		<LI>Year
+		Entered the University 
+		<%= f.text_field :year, :size => "12", placeholder: "20xx" %>
+		&nbsp&nbspCurrent Year Classification 
+	<%= f.text_field :current, :size => "5", placeholder: "e.g. 2nd" %>
+	</OL>
+	<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
+	</P>
+	<OL START=3>
+		<LI>College
+		Degree Sought <%= f.text_field :degree, :size => "53" %>
+	</OL>
+	<P  ><BR>
+	</P>
+	<OL START=4>
+		<LI>Have
+		you ever incurred a grade of '4' or '5' in the past two
+		semesters and last mid year if enrolled?  (If yes, list the
+		subjects, grades and semesters incurred.)
+	</OL>
+	<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial"><FONT SIZE=2 STYLE="font-size: 11pt">
+	<%= f.text_area :grades, :rows => "7" %>
+	</FONT></FONT></P>
+	<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
+	</P>
+	<OL START=5>
+		<LI>Did
+		you avail of the STS? 
+		<%= f.text_field :sts, :size => "2", placeholder: "Y/N" %>
+		&nbsp&nbsp (If yes, what tuition fee discount
+		level are you in?)  
+	<%= f.text_field :stslevel, :size => "1" %>
+	</OL>
+	<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
+	</P>
+	<OL START=6>
+		<LI>Estimated
+		Gross Family Income of Parents/Guardian (Annual) 
+	<%= f.text_field :income, :size => "30", placeholder: "in Pesos" %>
+	</OL><br>
+	<OL START=7>
+		<LI>Are
+		you receiving any scholarship/grant/assistance?
+	<%= f.text_field :scholarship, :size => "4",placeholder: "Y/N" %>If yes,
+		kindly provide the following details:
+		<OL TYPE=a STYLE="margin-left: 0.25in">
+			<LI>Name
+			of the funding agency  
+	<%= f.text_field :funding, :size => "55" %>
+			<LI>Benefits
+			(in Peso) 
+	<%= f.text_field :benefits, :size => "55" %>
+			<LI>Duration 
+	<%= f.text_field :duration, :size => "30" %>
+			<LI>Does
+			the funding agency allow you to have other
+			scholarships/grants/assistance? 
+	<%= f.text_field :allow, :size => "4" %>
+		</OL>
+	</OL>
+	<P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
+	</P>
+	<OL START=8>
+		<LI>Have
+		you been guilty of participating in any violent incident, whether on
+		campus or off-campus?  (If yes, please explain under what
+		circumstances.)
+	</OL>
+	<%= f.text_area :incident, :rows => "7" %>
+	<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
+	</P>
+	<OL START=9>
+		<LI>Have
+		you been subjected to any disciplinary action involving a penalty of
+		at least five (5) days suspension, or found guilty of a more serious
+		offense?  (If yes, please explain.) 
+	<%= f.text_area :disciplinary, :rows => "7" %>
+	</OL>
+	<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
+	</P>
+	<OL START=10>
+		<LI>Family
+		Background
+	</OL><TABLE WIDTH="100%" CELLPADDING=0 CELLSPACING=0>
+		<COL WIDTH="31%">
+		<COL WIDTH="15%">
+		<COL WIDTH="8%">
+		<COL WIDTH="10%">
+		<COL WIDTH="22%">
+		<COL WIDTH='14%'>
+		<TR VALIGN=TOP>
+			<TD WIDTH="33%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Name</FONT></FONT></P>
+			</TD>
+			<TD WIDTH="15%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Relationship</FONT></FONT></P>
+			</TD>
+			<TD WIDTH="8%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Age</FONT></FONT></P>
+			</TD>
+			<TD WIDTH="10%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Marital
+				Status</FONT></FONT></P>
+			</TD>
+			<TD WIDTH="22%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Living
+				with you? (Yes/No)</FONT></FONT></P>
+			</TD>
+			<TD WIDTH="12%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Occupation</FONT></FONT></P>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD width="33%" style="text-align: center;">
+			<%= f.text_field :name1 %>
+			</TD>
+			<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :relationship1 %>
+			</TD>
+			<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :age1 %>
+			</TD>
+			<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :marital1 %>
+			</TD>
+			<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :living1 %>
+			</TD>
+			<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :occupation1 %>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD width="33%" style="text-align: center;">
+			<%= f.text_field :name2 %>
+			</TD>
+			<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :relationship2 %>
+			</TD>
+			<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :age2 %>
+			</TD>
+			<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :marital2 %>
+			</TD>
+			<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :living2 %>
+			</TD>
+			<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :occupation2 %>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD width="33%" style="text-align: center;">
+			<%= f.text_field :name3 %>
+			</TD>
+			<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :relationship3 %>
+			</TD>
+			<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :age3 %>
+			</TD>
+			<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :marital3 %>
+			</TD>
+			<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :living3 %>
+			</TD>
+			<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :occupation3 %>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD width="33%" style="text-align: center;">
+			<%= f.text_field :name4 %>
+			</TD>
+			<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :relationship4 %>
+			</TD>
+			<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :age4 %>
+			</TD>
+			<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :marital4 %>
+			</TD>
+			<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :living4 %>
+			</TD>
+			<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :occupation4 %>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD width="33%" style="text-align: center;">
+			<%= f.text_field :name5 %>
+			</TD>
+			<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :relationship5 %>
+			</TD>
+			<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :age5 %>
+			</TD>
+			<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :marital5 %>
+			</TD>
+			<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :living5 %>
+			</TD>
+			<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :occupation5 %>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD width="33%" style="text-align: center;">
+			<%= f.text_field :name6 %>
+			</TD>
+			<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :relationship6 %>
+			</TD>
+			<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :age6 %>
+			</TD>
+			<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :marital6 %>
+			</TD>
+			<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :living6 %>
+			</TD>
+			<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :occupation6 %>
+			</TD>
+		</TR>
+		<TR VALIGN=TOP>
+			<TD width="33%" style="text-align: center;">
+			<%= f.text_field :name7 %>
+			</TD>
+			<TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :relationship7 %>
+			</TD>
+			<TD  WIDTH=28 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :age7 %>
+			</TD>
+			<TD  WIDTH=44 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :marital7 %>
+			</TD>
+			<TD  WIDTH=95 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :living7 %>
+			</TD>
+			<TD  WIDTH=79 style="border: 1px solid #00000a; text-align: center;">
+			<%= f.text_field :occupation7 %>
+			</TD>
+		</TR>
+	</TABLE>
+	<P  ><BR>
+	</P>
+	<OL START=11>
+		<LI>Describe
+		briefly why you should be awarded the scholarship/grant applied for?
+	</OL>
+	<%= f.text_area :reason, :rows => "12" %>
+	<P  ><BR>
+	</P>
+	<P  ><BR>
+	</P>
+	<P  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">I
+	declare under penalties of perjury that this application has been
+	accomplished in good faith, verified by me and to the best of my
+	knowledge and belief, is true.</FONT></FONT></P>
+	<P  ><BR>
+	</P>
+	<P  ><BR>
+	</P>
+	<div class="textbox">
+	<P class="alignleft">
+	<%= f.text_field :name_confirmation, :size => "50" %></P>
+	<P class="alignright">
+	<%= f.text_field :date, :size => "17", placeholder: "mm-dd-yyyy" %></P>
+	</div>
+	<br><br>
+	<div class="textbox">
+	<P class="alignleft" style="margin-left: 0.8in">Signature
+	over Printed Name </P>
+	<P class="alignright" style="margin-right: 0.6in">Date</P>
+	</div>
+	<P  ><BR>
+	</P>
+	<br>
+	 <p align="center"> <%= f.submit 'Download', data: { confirm: 'Confirm Submissions and Download.', } %> </p>
+	</div>
+	<% end %>
+	</body>
+	</HTML>

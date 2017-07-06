@@ -22,10 +22,14 @@ gem 'coffee-rails', '~> 4.2'
 #Use Prawn to generate PDFs
 gem 'prawn'
 
-
 gem 'coffee-script-source', '1.8.0'
 #Use PDFKit to convert HTML to PDF
 gem 'wicked_pdf'
+
+#Adding date/time validation
+gem 'validates_timeliness'
+
+gem 'dynamic_form'
 
 gem 'wkhtmltopdf-binary'
 # See https://github.com/rails/execjs#readme for more supported runtimes

@@ -21,7 +21,6 @@
     	text-align: center;
     }
 
-
     textarea {
     	outline: 0;
     	width: 100%;
@@ -169,33 +168,34 @@ UP College of Engineering for the deadline of the submission.</FONT></FONT></P>
 <hr>
 <fieldset>
 <legend><b><p>Applicant</p></b></legend>
-<form action="sample" method="post">
+<%= form_tag(controller: "welcome", action: "sample", method: "get") do%>
 <P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
-Name <input type="text" name="person[name]"  style="width: 55%"></input>
-&nbsp&nbspStudent Number <input type="text" name="person[sn]" style="width: 18%"></input></FONT></FONT></P>
+Name <%= text_field_tag(:name, "", :size => "45") %>
+&nbsp&nbspStudent Number <%= text_field(:person, :sn, :size => "11") %></FONT></FONT></P>
 <P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
-Date and Place of Birth <input type="text" name="person[birth]" style="width: 40%"></input>
-&nbsp&nbspCitizenship <input type="text" name="person[citizenship]" style="width: 21%"></input></FONT></FONT></P>
+Date and Place of Birth <%= text_field(:person, :birth, :size => "30") %>
+&nbsp&nbspCitizenship <%= text_field(:person, :citizenship, :size => "15") %></FONT></FONT></P>
 <P align=left  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
-Current Address <textarea style="height: 50px" name="person[caddress]" maxlength="300"></textarea></FONT></FONT></P>
+Current Address <%= text_area(:person, :caddress, :rows => "3", :maxlength => 300) %>	
+</FONT></FONT></P>
 <P align=left  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
-Home Address <textarea style="height: 50px" name="person[haddress]"></textarea maxlength="300"></FONT></FONT></P>
+Home Address <%= text_area(:person, :haddress, :rows => "3", :maxlength => 300) %></FONT></FONT></P>
 <P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
-Landline/Mobile/E-mail <input name="person[contact]"type="text" style="width: 65%"></input></FONT></FONT></P>
+Landline/Mobile/E-mail <%= text_field(:person, :contact, :size => "55") %></FONT></FONT></P>
 </fieldset>
 <BR>
 <fieldset>
 <LEGEND><b><P align=justify>Parent/Guardian</P></LEGEND></b>
 <P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
-Name <input type="text" name="parents[name]" style="width: 50%"></input>
-&nbsp&nbspContact No./E-mail <input type="text" name="parents[contact]" style="width: 20%"></input></p></FONT>
-Address <textarea style="height: 50px" name="parents[address]" maxlength="300"></textarea></FONT></FONT></P></fieldset><BR>
+Name <%= text_field(:parents, :name, :size => "41") %>
+&nbsp&nbspContact No./E-mail <%= text_field(:parents, :contact, :size => "13") %></p></FONT>
+Address <%= text_area(:parents, :address, :rows => "3", :maxlength => 300) %></FONT></FONT></P></fieldset><BR>
 <OL>
 	<LI>Name
 	of Scholarship(s)/Study Grant(s) Applied for and Desired
 	Semester/Year of Award 
 </OL>
-<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, serif"><input type="text" name="person[desire]" style="width: 100%"></input></FONT></P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, serif"><%= text_field(:person, :desire, :size => "86") %></FONT></P>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, serif"><FONT SIZE=2><B>(</B></FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=2><U><B>May
 be left blank.</B></U></FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=2><I><B>
 The committee will endorse/nominate you for the first available
@@ -204,14 +204,14 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 </P>
 <OL START=2>
 	<LI>Year
-	Entered the University <input type="text" name="person[year]" style="width: 16%"></input>
-	&nbsp&nbspCurrent Year Classification <input type="text" name="person[current]" style="width: 12%"></input>
+	Entered the University <%= text_field(:person, :year, :size => "12") %>
+	&nbsp&nbspCurrent Year Classification <%= text_field(:person, :current, :size => "5") %>
 </OL>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
 </P>
 <OL START=3>
 	<LI>College
-	Degree Sought <input type="text" name="person[degree]" style="width: 50%"></input>
+	Degree Sought <%= text_field(:person, :degree, :size => "53") %>
 </OL>
 <P  ><BR>
 </P>
@@ -221,33 +221,34 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 	semesters and last mid year if enrolled?  (If yes, list the
 	subjects, grades and semesters incurred.)
 </OL>
-<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial"><FONT SIZE=2 STYLE="font-size: 11pt"><textarea style="height: 100px" name="person[grades]" maxlength="300"></textarea></FONT></FONT></P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial"><FONT SIZE=2 STYLE="font-size: 11pt"><%= text_area(:person, :grades, :rows => "7", :maxlength => 600) %></FONT></FONT></P>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
 </P>
 <OL START=5>
 	<LI>Did
-	you avail of the STS?&nbsp<input type="text" name="person[sts]" style="width: 9%"></input>&nbsp&nbsp (If yes, what tuition fee discount
-	level are you in?)  <input type="text" name="person[stslevel]" style="width: 7%"></input>
+	you avail of the STS? <%= text_field(:person, :sts, :size => "2") %>
+	&nbsp&nbsp (If yes, what tuition fee discount
+	level are you in?)  <%= text_field(:person, :stslevel, :size => "1") %>
 </OL>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
 </P>
 <OL START=6>
 	<LI>Estimated
-	Gross Family Income of Parents/Guardian (Annual) <input type="text" name="person[income]" style="width: 36%"></input>
+	Gross Family Income of Parents/Guardian (Annual) <%= text_field(:person, :income, :size => "29") %>
 </OL><br>
 <OL START=7>
 	<LI>Are
-	you receiving any scholarship/grant/assistance?  <input type="text" name="person[scholarship]" style="width: 10%;"></input> If yes,
+	you receiving any scholarship/grant/assistance?  <%= text_field(:person, :scholarship, :size => "4") %>If yes,
 	kindly provide the following details:
 	<OL TYPE=a STYLE="margin-left: 0.25in">
 		<LI>Name
-		of the funding agency <input type="text" name="person[funding]" style="width: 67%; text-align: center"></input>
+		of the funding agency  <%= text_field(:person, :funding, :size => "55") %>
 		<LI>Benefits
-		(in Peso) <input type="text" name="person[benefits]" style="width: 77.3%; text-align: center"></input>
-		<LI>Duration <input type="text" name="person[duration]" style="width: 86.5%; text-align: center"></input>
+		(in Peso) <%= text_field(:person, :benefits, :size => "55") %>
+		<LI>Duration <%= text_field(:person, :degree, :size => "30") %>
 		<LI>Does
 		the funding agency allow you to have other
-		scholarships/grants/assistance? <input type="text" name="person[allow]" style="width: 10%"></input>
+		scholarships/grants/assistance? <%= text_field(:person, :allow, :size => "4") %>
 	</OL>
 </OL>
 <P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
@@ -257,14 +258,14 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 	you been guilty of participating in any violent incident, whether on
 	campus or off-campus?  (If yes, please explain under what
 	circumstances.)
-</OL><textarea style="height: 100px" name="person[incident]" maxlength="300"></textarea>
+</OL><%= text_area(:person, :incident, :rows => "7", :maxlength => 1000) %>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
 </P>
 <OL START=9>
 	<LI>Have
 	you been subjected to any disciplinary action involving a penalty of
 	at least five (5) days suspension, or found guilty of a more serious
-	offense?  (If yes, please explain.) <textarea style="height: 100px" name="person[disciplinary]" maxlength="300"></textarea>
+	offense?  (If yes, please explain.) <%= text_area(:person, :disciplinary, :rows => "7", :maxlength => 1000) %>
 </OL>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
 </P>
@@ -446,7 +447,7 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 <OL START=11>
 	<LI>Describe
 	briefly why you should be awarded the scholarship/grant applied for?
-</OL><textarea style="height: 200px" name="person[reason]" maxlength="300"></textarea>
+</OL><%= text_area(:person, :reason, :rows => "12", :maxlength => 2000) %>
 <P  ><BR>
 </P>
 <P  ><BR>
@@ -460,8 +461,8 @@ knowledge and belief, is true.</FONT></FONT></P>
 <P  ><BR>
 </P>
 <div id="textbox">
-<P class="alignleft"><input type="text" style="width: 380px; border: 0; outline: 0; padding: 1px; border-bottom: 1px solid black"></P>
-<P class="alignright"><input type="text" name="date" style="width: 150px; border: 0; outline: 0; padding: 1px; border-bottom: 1px solid black"></P>
+<P class="alignleft"><%= text_field(:person, :name_confirmation, :size => "53") %></P>
+<P class="alignright"><%= text_field(:person, :date, :size => "21") %></P>
 </div>
 <br><br>
 <div id="textbox">
@@ -478,8 +479,8 @@ SEND SOFT COPY OF ALL DOCUMENTS TO </B></FONT></FONT><A HREF="mailto:mparciga@ya
 Then, SUBMIT </FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=1 STYLE="font-size: 8pt"><B>HARD
 COPIES TO MH209.</B></FONT></FONT></P>
 <p class="alignright">
-<input type=submit></p>
-</form>
+	<%= submit_tag("Submit") %> </p>
+<% end %>
 </div>
 </BODY>
 </HTML>
