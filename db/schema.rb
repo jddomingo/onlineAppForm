@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20170704133032) do
     t.string   "degree"
     t.string   "grades"
     t.string   "sts"
+    t.string   "image"
     t.string   "stslevel"
     t.string   "income"
     t.string   "scholarship"

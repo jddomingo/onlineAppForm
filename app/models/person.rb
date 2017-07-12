@@ -1,4 +1,6 @@
 class Person < ApplicationRecord
+	mount_uploader :image, ImageUploader
+=begin
 	validates :name, presence: true, confirmation: true
 	validates :sn, presence: true, format: { with: /\d{4}-\d{5}/ }, length: { is: 10 }
 	validates :birth, presence: true
@@ -9,6 +11,7 @@ class Person < ApplicationRecord
 	validates :pname, presence: true
 	validates :pcontact, presence: true
 	validates :paddress, presence: true
+	validates :grades, presence: true
 	validates :year, presence: true, length: { is: 4 }, numericality: { only_integer: true }
 	validates :current, presence: true
 	validates :degree, presence: true
@@ -19,4 +22,5 @@ class Person < ApplicationRecord
 	validates :disciplinary, presence: true
 	validates :reason, presence: true
 	validates :date, presence: true
+=end
 end

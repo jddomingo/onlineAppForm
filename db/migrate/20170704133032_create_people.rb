@@ -2,13 +2,9 @@ class CreatePeople < ActiveRecord::Migration[5.0]
   def change
     create_table :people do |t|
       t.string :name
-      
-      t.string :sn
-      
+      t.string :sn      
       t.string :birth
-      
       t.string :citizenship
-      
       t.string :caddress
       
       t.string :haddress
@@ -31,30 +27,19 @@ class CreatePeople < ActiveRecord::Migration[5.0]
       t.string :grades
       
       t.string :sts
-      
+      t.string :image
       t.string :stslevel
-      
       t.string :income
       t.string :scholarship
-      
       t.string :funding
-      
       t.string :benefits
-      
       t.string :duration
-      
       t.string :incident
-      
       t.string :disciplinary
-      
       t.string :reason
-      
       t.string :name_confirmation
-      
       t.string :date
-      
       t.string :allow
-      
       t.string :name1
       t.string :name2
       t.string :name3

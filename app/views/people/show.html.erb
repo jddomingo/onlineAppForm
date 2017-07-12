@@ -7,7 +7,7 @@
         margin: 0;
         padding: 0;
         background-color: #FFFFFF;
-        font: 12pt "Arial";
+        font: 11pt "Arial";
     }
 
     hr {
@@ -63,7 +63,7 @@
     p, ol {
     	margin: 0;
     	padding: 0;
-    	size: 8.27in 11.69in;
+    	size: 8.5in 11in;
     	word-wrap: break-word;
 
     }
@@ -83,12 +83,15 @@
     }
 
     span {
-    	border-bottom: 1px solid black;
     	display: inline-block; 
     	overflow: hidden; 
     	text-align: center;
     	word-wrap: break-word;
     	word-break: break-all;
+    }
+
+    .span1 {
+    	border-bottom: 1px solid black;
     }
 
     li {
@@ -143,9 +146,10 @@
 </HEAD>
 <BODY LANG="en-PH" LINK="#0563c1" DIR="LTR">
 <div class="page">
-<P  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>University
-of the Philippines</B></FONT></FONT><SPAN DIR="LTR" STYLE="float: right; width: 2.01in; height: 1.78in; border: 1px solid #000000; padding: 0.05in 0.1in; background: #ffffff "><FONT FACE="Arial, serif">ID
-	PHOTO</FONT>
+<P>
+	<div style="float: left;"> <%= wicked_pdf_image_tag "/images/updcoelogo.png", :width => "150", :height => "150" %> </div><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B><br><br>University
+	of the Philippines</B></FONT></FONT><SPAN DIR="LTR" align="center" STYLE="float: right; width: 2.01in; height: 1.78in; border: 1px solid #000000; background: #ffffff"> 
+	<%= wicked_pdf_image_tag(@person.image_url.to_s) if @person.image_url.present?%>
 </SPAN>
 </P>
 <P ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">College
@@ -182,29 +186,29 @@ UP College of Engineering for the deadline of the submission.</FONT></FONT></P>
 <fieldset>
 <legend><b><p>Applicant</p></b></legend>
 <P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
-Name:  <span style="width: 458px;"> <%= @person.name %> </span>
-Student Number: <span style="width: 150px;"> <%= @person.sn %> </span>
+Name:  <span class="span1" style="width: 458px;"> <%= @person.name %> </span>
+Student Number: <span class="span1" style="width: 150px;"> <%= @person.sn %> </span>
 </FONT></FONT></P>
 <P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
-Date and Place of Birth: <span style="width: 380px"><%= @person.birth %></span>&nbsp&nbspCitizenship: <span style="width: 150px"><%= @person.citizenship %></span></FONT></FONT></P>
+Date and Place of Birth: <span class="span1" style="width: 380px"><%= @person.birth %></span>&nbsp&nbspCitizenship: <span class="span1" style="width: 150px"><%= @person.citizenship %></span></FONT></FONT></P>
 <P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Current Address:
 	  <textarea readonly style="height: 50px;"><%= @person.caddress %></textarea></FONT></FONT></P>
 <P align=left  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Home
 Address:
 <textarea readonly style="height: 50px;"><%= @person.haddress %></textarea></FONT></FONT></P>
-<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Landline/Mobile/E-mail: <span style="width: 600px"><%= @person.contact %> </span></FONT></FONT></P>
+<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Landline/Mobile/E-mail: <span class="span1" style="width: 600px"><%= @person.contact %> </span></FONT></FONT></P>
 </fieldset>
 <BR>
 <fieldset>
 <LEGEND><b><P align=justify  >Parent/Guardian</P></LEGEND></b>
-<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Name: <span style="width: 380px"><%= @person.pname %></span>&nbsp&nbspContact No./E-mail: <span style="width: 210px"><%= @person.pcontact %></span></p></FONT>
+<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Name: <span class="span1" style="width: 380px"><%= @person.pname %></span>&nbsp&nbspContact No./E-mail: <span class="span1" style="width: 210px"><%= @person.pcontact %></span></p></FONT>
 Address: <textarea readonly style="height: 50px"><%= @person.paddress %></textarea></FONT></FONT></P></fieldset><BR>
 <OL>
 	<LI>Name
 	of Scholarship(s)/Study Grant(s) Applied for and Desired
 	Semester/Year of Award 
 </OL>
-<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, serif"><br><span style="width: 770px"><%= @person.desire %></span></FONT></P>
+<P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, serif"><br><span class="span1" style="width: 770px"><%= @person.desire %></span></FONT></P>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><FONT FACE="Arial, serif"><FONT SIZE=2><B>(</B></FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=2><U><B>May
 be left blank.</B></U></FONT></FONT><FONT FACE="Arial, serif"><FONT SIZE=2><I><B>
 The committee will endorse/nominate you for the first available
@@ -213,13 +217,13 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 </P>
 <OL START=2>
 	<LI>Year
-	Entered the University <span style="width: 100px"><%= @person.year %></span>&nbsp&nbspCurrent Year Classification <span style="width: 80px"><%= @person.current %></span>
+	Entered the University <span class="span1" style="width: 100px"><%= @person.year %></span>&nbsp&nbspCurrent Year Classification <span class="span1" style="width: 80px"><%= @person.current %></span>
 </OL>
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
 </P>
 <OL START=3>
 	<LI>College
-	Degree Sought <span style="width: 300px"><%= @person.degree %></span>
+	Degree Sought <span class="span1" style="width: 300px"><%= @person.degree %></span>
 </OL>
 <P  ><BR>
 </P>
@@ -234,8 +238,8 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 </P>
 <OL START=5>
 	<LI>Did
-	you avail of the STS?&nbsp<span style="width: 60px"><%= @person.sts %></span>&nbsp&nbsp (If yes, what tuition fee discount
-	level are you in?)  <span style="width: 40px"><%= @person.stslevel %></span>
+	you avail of the STS?&nbsp<span class="span1" style="width: 60px"><%= @person.sts %></span>&nbsp&nbsp (If yes, what tuition fee discount
+	level are you in?)  <span class="span1" style="width: 40px"><%= @person.stslevel %></span>
 </OL>
 
 <P STYLE="margin-left: 0.25in; margin-bottom: 0in"><BR>
@@ -243,22 +247,22 @@ scholarship slot where you qualify.)</B></I></FONT></FONT></P>
 
 <OL START=6>
 	<LI>Estimated
-	Gross Family Income of Parents/Guardian (Annual) <span style="width: 300px"><%= @person.income %></span>
+	Gross Family Income of Parents/Guardian (Annual) <span class="span1" style="width: 300px"><%= @person.income %></span>
 </OL>
 <br>
 <OL START=7>
 	<LI>Are
-	you receiving any scholarship/grant/assistance?  <span style="width: 60px; text-align: center"><%= @person.scholarship %></span> If yes,
+	you receiving any scholarship/grant/assistance?  <span class="span1" style="width: 60px; text-align: center"><%= @person.scholarship %></span> If yes,
 	kindly provide the following details:
 	<OL TYPE=a STYLE="margin-left: 0.25in">
 		<LI>Name
-		of the funding agency <span style="width: 440px;"><%= @person.funding %></span>
+		of the funding agency <span class="span1" style="width: 440px;"><%= @person.funding %></span>
 		<LI>Benefits
-		(in Peso) <span style="width: 505px;"><%= @person.benefits %></span>
-		<LI>Duration <span style="width: 562px; text-align: center"><%= @person.duration %></span>
+		(in Peso) <span class="span1" style="width: 505px;"><%= @person.benefits %></span>
+		<LI>Duration <span class="span1" style="width: 562px; text-align: center"><%= @person.duration %></span>
 		<LI>Does
 		the funding agency allow you to have other
-		scholarships/grants/assistance? <span style="width: 60px"><%= @person.allow %></span>
+		scholarships/grants/assistance? <span class="span1" style="width: 60px"><%= @person.allow %></span>
 	</OL>
 </OL>
 <P STYLE="margin-left: 0.5in; margin-bottom: 0in"><BR>
@@ -510,8 +514,8 @@ knowledge and belief, is true.</FONT></FONT></P>
 <P><br>
 </P>
 <div id="textbox">
-<P class="alignleft"><span style="width: 380px; border: 0; outline: 0; padding: 1px; border-bottom: 1px solid black"><%= @person.name %></span></P>
-<P class="alignright"><span style="width: 150px; border: 0; outline: 0; padding: 1px; border-bottom: 1px solid black"><%= @person.date %></span></P>
+<P class="alignleft"><span class="span1" style="width: 380px; border: 0; outline: 0; padding: 1px; border-bottom: 1px solid black"><%= @person.name %></span></P>
+<P class="alignright"><span class="span1" style="width: 150px; border: 0; outline: 0; padding: 1px; border-bottom: 1px solid black"><%= @person.date %></span></P>
 </div>
 <br><br>
 <div id="textbox">

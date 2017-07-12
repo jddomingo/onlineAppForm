@@ -1,5 +1,6 @@
 	<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
+	<%= form_for :person, :url => people_path, :html => { multipart: true } do |f|%>
 	<HTML>
 	<HEAD>
 	<style type="text/css">    
@@ -66,13 +67,6 @@
 
 	    }
 
-	    .table-editable {
-	    	position: relative;
-
-	    	.glyphicon {
-	    		font-size: 25px;
-	    	}
-	    }
 
 	    li {
 	    	list-style-position: inside;
@@ -120,12 +114,21 @@
 	        }
 	    }
 	</style>
+
+	<script type="text/javascript">
+
+		function update() {
+			document.getElementById("person_name_confirmation").value=document.getElementById("person_name").value
+		}
+	</script>
 		<TITLE>Scholarship Form</TITLE>
 	</HEAD>
 	<body LANG="en-PH" LINK="#0563c1" DIR="LTR" data-no-turbolink="true">
 	<div class="page">
-	<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B>University
-	of the Philippines</B></FONT></FONT><SPAN DIR="LTR" STYLE="float: right; width: 2.01in; height: 1.78in; border: 1px solid #000000; padding: 0.05in 0.1in; background: #ffffff "><FONT FACE="Arial, serif">ID PHOTO</FONT>
+	<P>
+	<img src="/images/updcoelogo.png" width="150" height="150" align="left"/><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt"><B><br><br>University
+	of the Philippines</B></FONT></FONT><SPAN DIR="LTR" align="center" STYLE="float: right; width: 2.01in; height: 1.78in; border: 1px solid #000000; background: #ffffff"><FONT FACE="Arial, serif">ID PHOTO</FONT>
+    <%= f.file_field :image %>
 	</SPAN>
 	</P>
 	<P ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">College
@@ -159,7 +162,6 @@
 	 Please see announcements from the Committee on Scholarships of the
 	UP College of Engineering for the deadline of the submission.</FONT></FONT></P>
 	<hr>
-	<%= form_for :person, :url => people_path do |f|%>
 	<% if @person.errors.any? %>
 	  <div id="error_explanation">
 	    <h2><%= pluralize(@person.errors.count, "error") %> found. Please fill in the necessary details:</h2>
@@ -175,8 +177,7 @@
 	<legend><b>Applicant</b></legend>
 	<P><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
 	Name
-	<%= f.text_field :name, :size => "47", placeholder: "Given Name M.I. Last Name" %>
-	<%= f.error_message_on :name %>
+	<%= f.text_field :name, :size => "47", placeholder: "Given Name M.I. Last Name", :onChange => "update()" %>
 	&nbsp&nbspStudent Number
 	<%= f.text_field :sn, :size => "11", placeholder: "20xx-xxxxx" %></FONT></FONT></P>
 	<P align=justify  ><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">
@@ -206,8 +207,10 @@
 	<%= f.text_field :pname, :size => "41", placeholder: "Given Name M.I. Last Name" %>
 	&nbsp&nbspContact No./E-mail 
 	<%= f.text_field :pcontact, :size => "15" %>
+	<p>
 	Address 
 	<%= f.text_area :paddress, :rows => "3" %>
+	</p>
 	</FONT></FONT></P></fieldset><BR>
 	<OL>
 		<LI>Name
@@ -317,7 +320,7 @@
 		<COL WIDTH="22%">
 		<COL WIDTH='14%'>
 		<TR VALIGN=TOP>
-			<TD WIDTH="33%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+			<TD WIDTH="33%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0 padding-left: 0.08in; padding-right: 0.08in">
 				<P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Name</FONT></FONT></P>
 			</TD>
 			<TD WIDTH="15%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
@@ -513,7 +516,7 @@
 	<P  ><BR>
 	</P>
 	<br>
-	 <p align="center"> <%= f.submit 'Download', data: { confirm: 'Confirm Submissions and Download.', } %> </p>
+	 <p align="center"> <%= f.submit 'Download', data: { confirm: 'Confirm Submissions and Download.', }%> </p>
 	</div>
 	<% end %>
 	</body>

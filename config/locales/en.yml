@@ -21,4 +21,21 @@
 
 en:
   hello: "Hello world"
-  sn: "Student Number"
+  activerecord:
+    attributes:
+      person:
+        sn: "Student Number"
+        birth: "Date and Place of Birth"
+        caddress: "Current Address"
+        haddress: "Home Address"
+        pname: "Parent's name"
+        pcontact: "Parent's contact"
+        paddress: "Parent's address"
+        current: "Current Year Classification"
+        sts: "STS"
+        scholarship: "No. 7"
+        grades: "No. 4"
+        incident: "No. 8"
+        disciplinary: "No. 9"
+        reason: "No. 11"
+        name_confirmation: "Printed Name"

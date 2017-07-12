@@ -29,7 +29,9 @@ gem 'wicked_pdf'
 #Adding date/time validation
 gem 'validates_timeliness'
 
-gem 'dynamic_form'
+#For image upload
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
 
 gem 'wkhtmltopdf-binary'
 # See https://github.com/rails/execjs#readme for more supported runtimes
