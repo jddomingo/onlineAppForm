@@ -1,0 +1,110 @@
+
+@import "compass/css3"
+html, body{
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+    font: 11pt "Arial";
+}
+
+hr {
+	border-style: solid;
+	border-width: 2;
+}
+
+input {
+	padding: 1px;
+	word-wrap: break-word;
+	text-align: center;
+}
+
+textarea {
+	outline: 0;
+	width: 100%;
+	max-height: 200px;
+	background: transparent;
+	padding: 1px;
+	margin: 1px;
+	resize: none;
+		word-wrap: break-word;
+		overflow: hidden;
+}
+
+.alignleft {
+	float:left;
+}
+
+.alignright {
+	float:right;
+}
+
+table {
+    width: 100%;
+    border-collapse:collapse;
+    margin: auto;
+    border: 2px solid black;
+    table-layout: fixed;
+}
+td {
+    text-align: center;
+}
+td input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+}
+
+p, ol {
+	margin: 0;
+	padding: 0;
+	size: 8.5in 11in;
+	word-wrap: break-word;
+
+}
+
+
+li {
+	list-style-position: inside;
+}
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.page {
+    width: 8.5in;
+    min-height: 11in;
+    padding: 2cm;
+    margin: 1cm auto;
+    border: 1px #D3D3D3 solid;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.field_with_errors {
+  border-color: red;
+  display: inline-block;
+}
+.subpage {
+    padding: 1cm;
+    border: 5px red solid;
+    height: 256mm;
+    outline: 2cm #FFEAEA solid;
+}
+@page {
+    size: letter;
+    position: absolute;
+    margin: 0;
+}
+@media print {
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+}

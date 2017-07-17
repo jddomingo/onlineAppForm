@@ -1,0 +1,126 @@
+
+@import "compass/css3"
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    font: 11pt "Arial";
+}
+
+hr {
+	border-style: solid;
+	border-width: 2;
+}
+
+input {
+	padding: 1px;
+	word-wrap: break-word;
+	text-align: center;
+}
+
+
+textarea {
+	outline: 0;
+	width: 100%;
+	background: transparent;
+	padding: 1px;
+	margin: 1px;
+	resize: none;
+		word-wrap: break-word;
+		overflow: hidden;
+
+}
+table {
+    width: 100%;
+    border-collapse:collapse;
+    margin: auto;
+    border: 2px solid black;
+    table-layout: fixed;
+}
+td {
+    text-align: center;
+}
+tr {
+	height: 15px;
+}
+td input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0;
+}
+
+.alignleft {
+	float:left;
+}
+
+.alignright {
+	float:right;
+}
+
+p, ol {
+	margin: 0;
+	padding: 0;
+	size: 8.5in 11in;
+	word-wrap: break-word;
+
+}
+
+#adjust {
+	font-size-adjust: 0.58;
+	border-bottom: 0px;
+	border: 0;
+}
+
+.table-editable {
+	position: relative;
+
+	.glyphicon {
+		font-size: 25px;
+	}
+}
+
+span {
+	display: inline-block; 
+	overflow: hidden; 
+	text-align: center;
+	word-wrap: break-word;
+	word-break: break-all;
+}
+
+.span1 {
+	border-bottom: 1px solid black;
+}
+
+li {
+	list-style-position: inside;
+}
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.page {
+    width: 8.5in;
+    min-height: 11in;
+}
+.subpage {
+    padding: 1cm;
+    border: 5px red solid;
+    height: 256mm;
+    outline: 2cm #FFEAEA solid;
+}
+@page {
+    size: letter;
+    margin: 0;
+}
+@media print {
+    .page {
+        margin: 0;
+        border: initial;
+        border-radius: initial;
+        width: initial;
+        min-height: initial;
+        box-shadow: initial;
+        background: initial;
+        page-break-after: always;
+    }
+}

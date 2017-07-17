@@ -23,7 +23,7 @@ en:
   hello: "Hello world"
   activerecord:
     attributes:
-      person:
+      form:
         sn: "Student Number"
         birth: "Date and Place of Birth"
         caddress: "Current Address"

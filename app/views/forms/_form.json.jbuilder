@@ -1,0 +1,2 @@
+json.extract! form, :id, :name, :sn, :birth, :citizenship, :caddress, :haddress, :pcontact, :paddress, :pname, :desire, :year, :current, :grades, :sts, :image, :stslevel, :income, :scholarship, :funding, :benefits, :duration, :incident, :disciplinary, :reason, :date, :allow, :name1, :name2, :name3, :name4, :name5, :name6, :name7, :relationship1, :relationship2, :relationship3, :relationship4, :relationship5, :relationship6, :relationship7, :created_at, :updated_at
+json.url form_url(form, format: :json)

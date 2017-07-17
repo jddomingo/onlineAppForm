@@ -19,21 +19,8 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 
-#Use Prawn to generate PDFs
-gem 'prawn'
 
 gem 'coffee-script-source', '1.8.0'
-#Use PDFKit to convert HTML to PDF
-gem 'wicked_pdf'
-
-#Adding date/time validation
-gem 'validates_timeliness'
-
-#For image upload
-gem 'carrierwave', '~> 0.10.0'
-gem 'mini_magick', '~> 4.3'
-
-gem 'wkhtmltopdf-binary'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -63,3 +50,16 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+#Use PDFKit to convert HTML to PDF
+gem 'wicked_pdf'
+
+#Adding date/time validation
+gem 'validates_timeliness'
+
+#For image upload
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick', '~> 4.3'
+
+gem 'wkhtmltopdf-binary'
+
+gem 'figaro'
