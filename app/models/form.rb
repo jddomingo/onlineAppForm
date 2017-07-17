@@ -1,5 +1,15 @@
 class Form < ApplicationRecord
+=begin
+	Mounts the uploader to the column
+	allowing retrieveing and uploading of
+	corresponding image file.
+=end
 	mount_uploader :image, ImageUploader
+=begin
+	Validates input and mostly checks
+	if necessary details are filled
+	up correctly.
+=end
 =begin
 	validates :name, presence: true, confirmation: true
 	validates :sn, presence: true, format: { with: /\d{4}-\d{5}/ }, length: { is: 10 }

@@ -3,27 +3,31 @@ class FormsController < ApplicationController
 
   # GET /forms
   # GET /forms.json
+  #Start Page. Links to a new form
   def index
-    @forms = Form.all
     delete_public
   end
 
   # GET /forms/1
   # GET /forms/1.json
+  # Shows the final output allowing the user to edit or download the form
   def show
   end
 
   # GET /forms/new
+  # Renders a blank form to be filled up by the user.
   def new
     @form = Form.new
   end
 
   # GET /forms/1/edit
+  # Allows the user to edit the form for necessary changes.
   def edit
   end
 
   # POST /forms
   # POST /forms.json
+  # Creates a new row in the database given data from the user
   def create
     @form = Form.new(form_params)
 
@@ -62,6 +66,7 @@ class FormsController < ApplicationController
     end
   end
 
+  #Downloads the generated pdf in Letter size.
   def download
     @form = Form.last
     #@pdf stores the pdf generated with necessary details found in form

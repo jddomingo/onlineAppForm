@@ -1,120 +1,12 @@
-  <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
-  <%= form_for(form,  :html => { multipart: true }) do |f|%>
+ <!--
+    Form placed on top of the original form to allow users to see the form filled-in in real time.
+ !-->
+  <%= form_for(form,  :html => { multipart: true }) do |f|%> 
   <HTML>
   <HEAD>
-    <style>
-@import "compass/css3"
-html, body{
-    margin: 0;
-    padding: 0;
-    background-color: #FAFAFA;
-    font: 11pt "Arial";
-}
-
-hr {
-  border-style: solid;
-  border-width: 2;
-}
-
-input {
-  padding: 1px;
-  word-wrap: break-word;
-  text-align: center;
-}
-
-textarea {
-  outline: 0;
-  width: 100%;
-  max-height: 200px;
-  background: transparent;
-  padding: 1px;
-  margin: 1px;
-  resize: none;
-    word-wrap: break-word;
-    overflow: hidden;
-}
-
-.alignleft {
-  float:left;
-}
-
-.alignright {
-  float:right;
-}
-
-table {
-    width: 100%;
-    border-collapse:collapse;
-    margin: auto;
-    border: 2px solid black;
-    table-layout: fixed;
-}
-td {
-    text-align: center;
-}
-td input {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 0;
-}
-
-p, ol {
-  margin: 0;
-  padding: 0;
-  size: 8.5in 11in;
-  word-wrap: break-word;
-
-}
-
-
-li {
-  list-style-position: inside;
-}
-* {
-    box-sizing: border-box;
-    -moz-box-sizing: border-box;
-}
-.page {
-    width: 8.5in;
-    min-height: 11in;
-    padding: 2cm;
-    margin: 1cm auto;
-    border: 1px #D3D3D3 solid;
-    border-radius: 5px;
-    background: white;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.field_with_errors {
-  border-color: red;
-  display: inline-block;
-}
-.subpage {
-    padding: 1cm;
-    border: 5px red solid;
-    height: 256mm;
-    outline: 2cm #FFEAEA solid;
-}
-@page {
-    size: letter;
-    position: absolute;
-    margin: 0;
-}
-@media print {
-    .page {
-        margin: 0;
-        border: initial;
-        border-radius: initial;
-        width: initial;
-        min-height: initial;
-        box-shadow: initial;
-        background: initial;
-        page-break-after: always;
-    }
-}
-</style>
-
+    <%= stylesheet_link_tag 'styles' %>
   <script type="text/javascript">
 
     function update() {
@@ -162,6 +54,9 @@ li {
    Please see announcements from the Committee on Scholarships of the
   UP College of Engineering for the deadline of the submission.</FONT></FONT></P>
   <hr>
+  <!--
+    Notifies users of errors, if any, regarding validation errors and incorrect filling-up of form by the user.
+  -->
   <% if @form.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@form.errors.count, "error") %> found. Please fill in the necessary details:</h2>
@@ -323,7 +218,7 @@ li {
       <TD WIDTH="33%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0 padding-left: 0.08in; padding-right: 0.08in">
         <P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Name</FONT></FONT></P>
       </TD>
-      <TD WIDTH="15%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
+      <TD WIDTH="15%" style="border: 1px solid #00000a; text-align: center;>
         <P ALIGN=CENTER><FONT FACE="Arial, serif"><FONT SIZE=2 STYLE="font-size: 11pt">Relationship</FONT></FONT></P>
       </TD>
       <TD WIDTH="8%" style="border: 1px solid #00000a; text-align: center;  padding-top: 0in; padding-bottom: 0in; padding-left: 0.08in; padding-right: 0.08in">
@@ -342,7 +237,7 @@ li {
       </TD>
     </TR>
     <TR VALIGN=TOP>
-      <TD width="33%" style="text-align: center;">
+      <TD width="33%" style="border: 1px solid #00000a; text-align: center;">
       <%= f.text_field :name1 %>
       </TD>
       <TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
@@ -362,7 +257,7 @@ li {
       </TD>
     </TR>
     <TR VALIGN=TOP>
-      <TD width="33%" style="text-align: center;">
+      <TD width="33%" style="border: 1px solid #00000a; text-align: center;">
       <%= f.text_field :name2 %>
       </TD>
       <TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
@@ -382,7 +277,7 @@ li {
       </TD>
     </TR>
     <TR VALIGN=TOP>
-      <TD width="33%" style="text-align: center;">
+      <TD width="33%" style="border: 1px solid #00000a; text-align: center;">
       <%= f.text_field :name3 %>
       </TD>
       <TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
@@ -402,7 +297,7 @@ li {
       </TD>
     </TR>
     <TR VALIGN=TOP>
-      <TD width="33%" style="text-align: center;">
+      <TD width="33%" style="border: 1px solid #00000a; text-align: center;">
       <%= f.text_field :name4 %>
       </TD>
       <TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
@@ -422,7 +317,7 @@ li {
       </TD>
     </TR>
     <TR VALIGN=TOP>
-      <TD width="33%" style="text-align: center;">
+      <TD width="33%" style="border: 1px solid #00000a; text-align: center;">
       <%= f.text_field :name5 %>
       </TD>
       <TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
@@ -442,7 +337,7 @@ li {
       </TD>
     </TR>
     <TR VALIGN=TOP>
-      <TD width="33%" style="text-align: center;">
+      <TD width="33%" style="border: 1px solid #00000a; text-align: center;">
       <%= f.text_field :name6 %>
       </TD>
       <TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
@@ -462,7 +357,7 @@ li {
       </TD>
     </TR>
     <TR VALIGN=TOP>
-      <TD width="33%" style="text-align: center;">
+      <TD width="33%" style="border: 1px solid #00000a; text-align: center;">
       <%= f.text_field :name7 %>
       </TD>
       <TD  WIDTH=81 style="border: 1px solid #00000a; text-align: center;">
